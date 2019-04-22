@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "Workplace Legal", root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to 'Home', root_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Services
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% Service.all.order(:name).each do |service| %>
+              <%= link_to service.name, service_path(service), class: "dropdown-item" %>
+          <% end %>
+        </div>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Blog Posts', blogs_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Videos', videos_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Acceso a Justicia', espanol_index_path, class: "nav-link" %>
+      </li>
+      <% if user_signed_in? %>
+      <li class="nav-item">
+        <%= link_to 'Leads', leads_path, class: "nav-link" %>
+      </li>
+      <% else %>
+      <% end %>
+
+      <li class="nav-item">
+        <%= link_to 'About', about_index_path, class: "nav-link" %>
+      </li>
+    </ul>
+    <p class="navbar-text pull-right">
+      <% if user_signed_in? %>
+        Logged in as <strong><%= current_user.email %></strong>.
+        <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+        <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+      <% end %>
+    </p>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form> -->
+  </div>
+</nav>

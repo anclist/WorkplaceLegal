@@ -3,15 +3,15 @@
 <div class="container">
   <%= bootstrap_form_with(model: lead, local: true) do |form| %>
 
-      <%= form.text_field :first_name %>
-      <%= form.text_field :last_name %>
-      <%= form.select :language, ['English', 'Spanish'], toggle: true%>
-      <%= form.phone_field :phone %>
-      <%= form.email_field :email %>
-      <%= form.text_area :issue, label: 'Describe your case' %>
+      <%= form.text_field :first_name, label: 'Nombre' %>
+      <%= form.text_field :last_name, label: 'Apellido' %>
+      <%= form.select :language, ['English', 'Spanish'], label: 'Idioma'%>
+      <%= form.number_field :phone, label: 'Telefono' %>
+      <%= form.text_field :email, label: 'Correo electronico' %>
+      <%= form.text_area :issue, label: 'Describa su caso' %>
       <!-- Button trigger modal -->
       <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#clientRelationshipMessage">
-        Submit
+        Enviar
       </button>
 
       <!-- Modal -->
@@ -19,10 +19,10 @@
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Disclaimer</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Aviso</h5>
             </div>
             <div class="modal-body">
-              <p>The submission of this form does not establish a lawyer-client relationship</p>
+              <p>El envio de este formulario no establece una relación abogado/cliente</p>
             </div>
             <div class="modal-footer">
                     <%= form.submit "Ok" %>

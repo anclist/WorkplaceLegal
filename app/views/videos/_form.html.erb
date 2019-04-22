@@ -1,37 +1,11 @@
-<%= form_with(model: video, local: true) do |form| %>
-  <% if video.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+<%= render 'layouts/errors', active_object: @video %>
 
-      <ul>
-      <% video.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<div class="container">
+  <%= bootstrap_form_with(model: video, local: true) do |form| %>
+
+      <%= form.text_field :title %>
+      <%= form.text_field :url %>
+      <%= form.collection_check_boxes :service_ids, Service.all, :id, :name, label: "Services" %>
+      <%= form.submit %>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :video_id %>
-    <%= form.text_field :video_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :provider %>
-    <%= form.text_field :provider %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

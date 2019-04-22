@@ -1,27 +1,14 @@
-<%= form_with(model: blog, local: true) do |form| %>
-  <% if blog.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(blog.errors.count, "error") %> prohibited this blog from being saved:</h2>
+<%= render 'layouts/errors', active_object: @blog %>
 
-      <ul>
-      <% blog.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<div class="container">
+  <%= bootstrap_form_with(model: blog, local: true) do |form| %>
+
+      <%= form.text_field :title %>
+      <%= form.text_area :content %>
+      <%= form.collection_check_boxes :service_ids, Service.all, :id, :name, label: "Services" %>
+      <%= form.file_field :picture %>
+      <%= form.hidden_field :picture_cache %>
+      <%= form.check_box :remove_picture %>
+      <%= form.submit %>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

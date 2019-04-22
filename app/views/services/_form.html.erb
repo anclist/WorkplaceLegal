@@ -1,27 +1,10 @@
-<%= form_with(model: service, local: true) do |form| %>
-  <% if service.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+<%= render 'layouts/errors', active_object: @service %>
 
-      <ul>
-      <% service.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+<div class="container">
+  <%= bootstrap_form_with(model: service, local: true) do |form| %>
+
+      <%= form.text_field :name %>
+      <%= form.text_area :description %>
+      <%= form.submit %>
   <% end %>
-
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

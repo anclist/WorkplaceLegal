@@ -1,14 +1,14 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @service.name %>
 </p>
-
 <p>
   <strong>Description:</strong>
   <%= @service.description %>
 </p>
 
-<%= link_to 'Edit', edit_service_path(@service) %> |
-<%= link_to 'Back', services_path %>
+<% if user_signed_in? %>
+  <%= link_to 'Edit', edit_service_path(@service) %> |
+  <%= link_to 'Back', services_path %>
+<% else %>
+<% end %>
