@@ -1,6 +1,6 @@
 <%= render 'layouts/errors', active_object: @lead %>
 
-<div class="container col-md-2 offset-md-5">
+<div class="container col-xl-2 offset-xl-5">
   <%= bootstrap_form_with(model: lead, local: true) do |form| %>
 
       <%= form.text_field :first_name, label: 'Nombre' %>
