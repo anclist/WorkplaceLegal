@@ -1,5 +1,6 @@
 class BlogsController < ApplicationController
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /blogs
   # GET /blogs.json
@@ -19,12 +20,14 @@ class BlogsController < ApplicationController
 
   # GET /blogs/1/edit
   def edit
+    ensure_ownership
   end
 
   # POST /blogs
   # POST /blogs.json
   def create
     @blog = Blog.new(blog_params)
+    @blog.user = current_user
 
     respond_to do |format|
       if @blog.save
@@ -40,6 +43,7 @@ class BlogsController < ApplicationController
   # PATCH/PUT /blogs/1
   # PATCH/PUT /blogs/1.json
   def update
+    ensure_ownership
     respond_to do |format|
       if @blog.update(blog_params)
         format.html { redirect_to @blog, notice: 'Blog was successfully updated.' }
@@ -67,8 +71,17 @@ class BlogsController < ApplicationController
       @blog = Blog.find(params[:id])
     end
 
+    #Make sure that a post can be changed only by the creator of the post
+    def ensure_ownership
+      if user_signed_in? && @blog.user != current_user
+        redirect_to blogs_path
+        flash[:alert] = "You are not allowed to change this record."
+      end
+    end
+
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :content)
+      params.require(:blog).permit(:title, :content, :service_ids => [])
     end
 end

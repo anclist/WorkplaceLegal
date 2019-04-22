@@ -1,5 +1,6 @@
 class LeadsController < ApplicationController
   before_action :set_lead, only: [:show]
+  before_action :authenticate_user!, only: [:index, :show]
 
   # GET /leads
   # GET /leads.json

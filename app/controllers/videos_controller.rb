@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: [:new, :create, :destroy]
 
   # GET /videos
   # GET /videos.json
@@ -25,6 +26,9 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
+    @video.user = current_user
+    @video.provider = parse_video_url(@video.url)[:provider]
+    @video.video_id = parse_video_url(@video.url)[:id]
 
     respond_to do |format|
       if @video.save
@@ -69,6 +73,34 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:title, :url, :video_id, :provider)
+      params.require(:video).permit(:title, :url, :service_ids => [])
+    end
+
+    def parse_video_url(url)
+      @url = url
+
+      youtube_formats = [
+          %r(https?://youtu\.be/(.+)),
+          %r(https?://www\.youtube\.com/watch\?v=(.*?)(&|#|$)),
+          %r(https?://www\.youtube\.com/embed/(.*?)(\?|$)),
+          %r(https?://www\.youtube\.com/v/(.*?)(#|\?|$)),
+          %r(https?://www\.youtube\.com/user/.*?#\w/\w/\w/\w/(.+)\b)
+        ]
+
+      vimeo_formats = [%r(https?://vimeo.com\/(\d+)), %r(https?:\/\/(www\.)?vimeo.com\/(\d+))]
+
+      @url.strip!
+
+      if @url.include? "youtu"
+        youtube_formats.find { |format| @url =~ format } and $1
+        @results = {provider: "YouTube", id: $1}
+        @results
+      elsif @url.include? "vimeo"
+        vimeo_formats.find { |format| @url =~ format } and $1
+        @results = {provider: "Vimeo", id: $1}
+        @results
+      else
+        return nil # There should probably be some error message here
+      end
     end
 end
