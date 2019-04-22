@@ -36,6 +36,18 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Use Bootstrap as CSS library
+gem 'bootstrap', '~> 4.3.1'
+
+# Bootstrap JavaScript depends on jQuery. If you're using Rails 5.1+, add the jquery-rails gem to your Gemfile:
+gem 'jquery-rails'
+
+# Use bootstrap froms helper to accelerate from generation
+gem "bootstrap_form", ">= 4.2.0"
+
+# Use devise for authentication and authorization
+gem 'devise'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

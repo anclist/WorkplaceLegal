@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  resources :videos
-  resources :services
+  devise_for :users
   root 'leads#new'
+  resources :leads, only: [:index, :new, :create, :show]
+  resources :videos, only: [:index, :new, :create, :destroy]
   resources :blogs
-  resources :leads
+  resources :services
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
