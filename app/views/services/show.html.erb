@@ -1,11 +1,13 @@
-<p>
-  <strong>Name:</strong>
-  <%= @service.name %>
-</p>
-<p>
-  <strong>Description:</strong>
-  <%= @service.description %>
-</p>
+<div class="container">
+  <p>
+    <strong>Name:</strong>
+    <%= @service.name %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @service.description %>
+  </p>
+</div>
 
 <% if user_signed_in? %>
   <%= link_to 'Edit', edit_service_path(@service) %> |
