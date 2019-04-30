@@ -9,14 +9,23 @@
       <% @videos.each do |video| %>
       <div class="col-lg-4">
         <div class="card">
-          <img src="http://i.ytimg.com/vi/<%= video.video_id %>/maxresdefault.jpg" class="card-img-top video-btn" alt="..." type="button" data-toggle="modal" data-src="<%= video.url %>" data-target="#videoModal">
+          <% if video.provider == "YouTube" %>
+            <img src="http://i.ytimg.com/vi/<%= video.video_id %>/maxresdefault.jpg" class="card-img-top video-btn" alt="..." type="button" data-toggle="modal" data-src="https://www.youtube.com/embed/<%= video.video_id %>" data-target="#videoModal">
+          <% else %>
+            <img src="https://i.vimeocdn.com/video/<%= video.video_id %>_1280x720.jpg" class="card-img-top video-btn" alt="..." type="button" data-toggle="modal" data-src="https://player.vimeo.com/video/<%= video.video_id %>" data-target="#videoModal">
+          <% end %>
+
           <div class="card-body">
             <h5 class="card-title"><%= video.title %></h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            <button type="button" class="btn btn-primary video-btn" data-toggle="modal" data-src="<%= video.url %>" data-target="#videoModal">
+          <% if video.provider == "YouTube" %>
+            <button type="button" class="btn btn-primary video-btn" data-toggle="modal" data-src="https://www.youtube.com/embed/<%= video.video_id %>" data-target="#videoModal">
+          <% else %>
+            <button type="button" class="btn btn-primary video-btn" data-toggle="modal" data-src="https://player.vimeo.com/video/<%= video.video_id %>" data-target="#videoModal">
+          <% end %>
               Play Video
             </button>
-            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            <p class="card-text"><small class="text-muted">Last updated <%= time_ago_in_words(video.updated_at) %> ago</small></p>
+            <p><%= video.video_id %></p>
             <% if user_signed_in? %>
               <%= link_to 'Delete', video, method: :delete, data: { confirm: 'Are you sure?' } %>
               <br>
@@ -34,13 +43,10 @@
 <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-body">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+      <div class="modal-body mb-0 p-0">
         <!-- 16:9 aspect ratio -->
-        <div class="embed-responsive embed-responsive-16by9">
-          <iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always" allow="autoplay"
+        <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
+          <iframe class="embed-responsive-item" id="video"  allowscriptaccess="always" allow="autoplay"
           allowfullscreen="allowfullscreen"
           mozallowfullscreen="mozallowfullscreen"
           msallowfullscreen="msallowfullscreen"
