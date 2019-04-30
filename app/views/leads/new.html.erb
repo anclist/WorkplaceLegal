@@ -1,34 +1,41 @@
 <!-- Header -->
-<div class="" id="main_bg">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-8">
-        <div class="jumbotron jumbotron-fluid h-100 bg-transparent">
-          <div class="container">
-            <h1 class="display-4 text-white">Workplace Legal</h1>
-            <p class="lead text-white">Welcome to your door to commercially sound workplace legal services that empower
-              leaders, business owners, managers, supervisors and human resources professionals to control
-              the inherent threats of employee relations by providing innovative training and compliance-
-              coaching, advise, representation, and conducting recyclable investigations, to substantially
-              reduce claims, grievances and lawsuits and improve workplace climate.</p>
-          </div>
-        </div>
+<div class="jumbotron" id="main_bg"">
+  <div class="text-white text-center py-5 px-4 my-5">
+    <div>
+      <h2 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Workplace Legal</strong></h2>
+      <p class="mx-5 mb-5">Welcome to your door to commercially sound workplace legal services that empower
+        leaders, business owners, managers, supervisors and human resources professionals to control
+        the inherent threats of employee relations by providing innovative training and compliance-
+        coaching, advise, representation, and conducting recyclable investigations, to substantially
+        reduce claims, grievances and lawsuits and improve workplace climate.
+      </p>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ContactForm">
+        Contact Us!
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="ContactForm" tabindex="-1" role="dialog" aria-labelledby="ContactFormLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ContactFormLabel">Contact Form</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
-      <div class="col-md-4">
-        <div class="card">
-          <div class="card-body">
-            <h2 class="card-title">Contact Us</h2>
-            <hr>
-            <%= render 'form', lead: @lead %>
-          </div>
-        </div>
+      <div class="modal-body">
+        <%= render 'form', lead: @lead %>
       </div>
     </div>
   </div>
 </div>
 
   <!-- Page Content -->
-  <div class="container">
+<div class="container">
     <div class="row">
       <div class="col-md-12">
         <h2>What do you want to achieve?</h2>
@@ -40,7 +47,9 @@
             human resources professionals;</li>
             <li>Receive lawyer’s services with a coaching style.</li>
         </ul>
-        <a class="btn btn-primary btn-lg" href="#">Contact Us &raquo;</a>
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ContactForm">
+          Contact Us &raquo;
+        </button>
       </div>
     </div>
-  </div>
+</div>

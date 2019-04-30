@@ -10,24 +10,15 @@
       <%= form.email_field :email %>
       <%= form.text_area :issue, label: 'Describe your case' %>
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#clientRelationshipMessage">
+      <button type="button" class="btn btn-primary" data-toggle="collapse" data-target="#clientRelationshipMessage">
         Submit
       </button>
 
       <!-- Modal -->
-      <div class="modal fade" id="clientRelationshipMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Disclaimer</h5>
-            </div>
-            <div class="modal-body">
-              <p>The submission of this form does not establish a lawyer-client relationship</p>
-            </div>
-            <div class="modal-footer">
-                    <%= form.submit "Ok" %>
-            </div>
-          </div>
+      <div class="collapse" id="clientRelationshipMessage">
+        <div class="card card-body">
+          <p>The submission of this form does not establish a lawyer-client relationship</p>
+          <%= form.submit "Ok" %>
         </div>
       </div>
   <% end %>
