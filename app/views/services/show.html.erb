@@ -7,10 +7,9 @@
     <strong>Description:</strong>
     <%= @service.description %>
   </p>
+  <% if user_signed_in? %>
+    <%= link_to 'Edit', edit_service_path(@service) %> |
+    <%= link_to 'Back', services_path %>
+  <% else %>
+  <% end %>
 </div>
-
-<% if user_signed_in? %>
-  <%= link_to 'Edit', edit_service_path(@service) %> |
-  <%= link_to 'Back', services_path %>
-<% else %>
-<% end %>
