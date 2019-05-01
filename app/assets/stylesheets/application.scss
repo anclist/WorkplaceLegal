@@ -20,13 +20,13 @@
  *= require rails_bootstrap_forms
  */
 
- * {
+* {
    -webkit-border-radius: 0 !important;
       -moz-border-radius: 0 !important;
            border-radius: 0 !important;
  }
 
- ul {
+ul {
   list-style-type: none;
 }
 
@@ -42,8 +42,19 @@
     color: white !important;
 }
 
- #main_bg {
-   background-image: url('legal_main_img.jpg');
+#main_bg {
+  background-image: url('legal_main_img.jpg');
+ }
+
+#blogs_bg {
+  background-image: url('blogs_bg_img.jpg');
+ }
+
+ #videos_bg {
+   background-image: url('videos_bg_img.jpg');
+  }
+
+.jumbobackground {
    background-repeat: no-repeat;
    background-size: cover;
    background-position: center center;
