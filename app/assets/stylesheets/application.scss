@@ -13,10 +13,34 @@
  */
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "_variables";
+@import "custom";
 @import "bootstrap";
 /*
  *= require rails_bootstrap_forms
  */
+
+ * {
+   -webkit-border-radius: 0 !important;
+      -moz-border-radius: 0 !important;
+           border-radius: 0 !important;
+ }
+
+ ul {
+  list-style-type: none;
+}
+
+#service_links a:visited {
+    color: white !important;
+}
+
+#service_links a:active {
+    color: white !important;
+}
+
+#service_links a {
+    color: white !important;
+}
 
  #main_bg {
    background-image: url('legal_main_img.jpg');
