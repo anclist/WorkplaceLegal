@@ -26,7 +26,7 @@
       <img class="img-fluid rounded" src="<%= @blog.picture.url %>" alt="">
         <hr>
       <!-- Post Content -->
-      <p class="lead"><%= @blog.content %></p>
+      <p class="lead"><%= @blog.content.html_safe %></p>
       <hr>
       <% if user_signed_in? %>
         <%= link_to 'Edit', edit_blog_path(@blog) %> |

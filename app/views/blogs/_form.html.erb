@@ -4,7 +4,7 @@
   <%= bootstrap_form_with(model: blog, local: true) do |form| %>
 
       <%= form.text_field :title %>
-      <%= form.text_area :content %>
+      <%= form.cktext_area :content, ckeditor: { language: 'uk'} %>
       <%= form.collection_check_boxes :service_ids, Service.all, :id, :name, label: "Services" %>
       <%= form.file_field :picture %>
       <%= form.hidden_field :picture_cache %>

@@ -48,8 +48,14 @@ gem "bootstrap_form", ">= 4.2.0"
 # Use devise for authentication and authorization
 gem 'devise'
 
-#Use carrierwave as upload manager
+# Use carrierwave as upload manager
 gem 'carrierwave', '~> 1.0'
+
+# Use mini_magick to process images
+gem 'mini_magick'
+
+# Use ckeditor for rich text editor for blog Posts
+gem 'ckeditor'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
