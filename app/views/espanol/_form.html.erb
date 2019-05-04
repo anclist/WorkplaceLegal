@@ -1,11 +1,11 @@
 <%= render 'layouts/errors', active_object: @lead %>
 
-<div class="container col-xl-2 offset-xl-5">
+<div class="container">
   <%= bootstrap_form_with(model: lead, local: true) do |form| %>
 
       <%= form.text_field :first_name, label: 'Nombre' %>
       <%= form.text_field :last_name, label: 'Apellido' %>
-      <%= form.select :language, ['English', 'Spanish'], label: 'Idioma'%>
+      <%= form.select :language, [ 'Spanish', 'English'], label: 'Idioma'%>
       <%= form.number_field :phone, label: 'Telefono' %>
       <%= form.text_field :email, label: 'Correo electronico' %>
       <%= form.text_area :issue, label: 'Describa su caso' %>
