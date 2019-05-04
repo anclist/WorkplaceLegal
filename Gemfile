@@ -54,6 +54,9 @@ gem 'carrierwave', '~> 1.0'
 # Use mini_magick to process images
 gem 'mini_magick'
 
+# The fog-aws gem will help us to upload file to s3.
+gem 'fog-aws'
+
 # Use ckeditor for rich text editor for blog Posts
 gem 'ckeditor'
 
