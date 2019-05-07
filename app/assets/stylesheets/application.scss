@@ -16,9 +16,8 @@
 @import "_variables";
 @import "custom";
 @import "bootstrap";
-/*
- *= require rails_bootstrap_forms
- */
+@import "rails_bootstrap_forms";
+
 body {
   font-family: 'Source Sans Pro', sans-serif;
 }
