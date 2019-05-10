@@ -130,9 +130,6 @@ ul {
 
  }
 
- body {
-   text-align: center;
- }
  h1 {
    $map: (576: 22, 768: 24, 992: 34);
    font-size: least-squares-fit($map);
