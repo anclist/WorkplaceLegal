@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'terms_of_use/index'
   mount Ckeditor::Engine => '/ckeditor'
   root :to => "leads#new"
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout'}, controllers: { registrations: "users/registrations"}
