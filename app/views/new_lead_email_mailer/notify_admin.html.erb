@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi Antonio</h1>
+    <p>
+      You have a new lead registered at workplacelegal.ca, here are the details:
+    </p>
+    <p>
+      <strong>First name:</strong>
+      <%= @lead.first_name %>
+    </p>
+
+    <p>
+      <strong>Last name:</strong>
+      <%= @lead.last_name %>
+    </p>
+
+    <p>
+      <strong>Laguage required</strong>
+      <%= @lead.language %>
+    </p>
+
+    <p>
+      <strong>Phone:</strong>
+      <%= @lead.phone %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @lead.email %>
+    </p>
+
+    <p>
+      <strong>Issue:</strong>
+      <%= @lead.issue %>
+    </p>
+    <p>
+      Your admin bot!
+    </p>
+  </body>
+</html>

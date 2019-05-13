@@ -25,7 +25,8 @@ class LeadsController < ApplicationController
 
     respond_to do |format|
       if @lead.save
-        format.html { redirect_to root_path, notice: 'Lead was successfully created.' }
+        NewLeadEmailMailer.notify_admin(@lead).deliver
+        format.html { redirect_to root_path, notice: 'Your information have been submitted.' }
         format.json { render :show, status: :created, location: @lead }
       else
         format.html { render :new }
