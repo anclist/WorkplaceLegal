@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'anclist@gmail.com'
+  default from: 'infoworkplacelegal@gmail.com'
   layout 'mailer'
 end

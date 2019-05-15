@@ -1,5 +1,5 @@
 class NewLeadEmailMailer < ApplicationMailer
-  default from: 'anclist@gmail.com'
+  default from: 'infoworkplacelegal@gmail.com'
 
   def notify_lead(lead)
     @lead = lead
@@ -8,6 +8,6 @@ class NewLeadEmailMailer < ApplicationMailer
 
   def notify_admin(lead)
     @lead = lead
-    mail(to: "antonio@inventorlegal.ca", subject: "You have a new lead on workplacelegal.ca")
+    mail(to: ENV['SMTP_MAIN_ADDRESS'], subject: "You have a new lead on workplacelegal.ca")
   end
 end
