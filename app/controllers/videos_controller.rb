@@ -1,3 +1,5 @@
+require "json"
+
 class VideosController < ApplicationController
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, only: [:new, :create, :destroy]
@@ -29,6 +31,7 @@ class VideosController < ApplicationController
     @video.user = current_user
     @video.provider = parse_video_url(@video.url)[:provider]
     @video.video_id = parse_video_url(@video.url)[:id]
+    @video.thumbnail_url = parse_video_url(@video.url)[:thumbnail]
 
     respond_to do |format|
       if @video.save
@@ -93,7 +96,13 @@ class VideosController < ApplicationController
 
       if @url.include? "youtu"
         youtube_formats.find { |format| @url =~ format } and $1
-        @results = {provider: "YouTube", id: $1}
+        @results = {provider: "YouTube", id: $1, thumbnail: ""}
+        response = HTTParty.get("https://www.googleapis.com/youtube/v3/videos?part=snippet&id=#{@results[:id]}&key=#{ENV['YOUTUBE_API_KEY']}", {
+          headers: {"Accept" => "application/json"}
+          })
+        parsed_response = JSON.parse(response.body)
+        thumb = parsed_response["items"][0]["snippet"]["thumbnails"]["maxres"]["url"]
+        @results[:thumbnail] = thumb
         @results
       elsif @url.include? "vimeo"
         vimeo_formats.find { |format| @url =~ format } and $1
