@@ -106,7 +106,12 @@ class VideosController < ApplicationController
         @results
       elsif @url.include? "vimeo"
         vimeo_formats.find { |format| @url =~ format } and $1
-        @results = {provider: "Vimeo", id: $1}
+        @results = {provider: "Vimeo", id: $1, thumbnail: ""}
+        response = HTTParty.get("https://vimeo.com/api/oembed.json?url=#{@url}&access_token=#{ENV['VIMEO_API_ACCESS_TOKEN']}")
+        parsed_response = JSON.parse(response.body)
+        thumb = parsed_response["thumbnail_url"]
+        @results[:thumbnail] = thumb
+
         @results
       else
         return nil # There should probably be some error message here
