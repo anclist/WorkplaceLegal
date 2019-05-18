@@ -1,26 +1,25 @@
-<p>
-  <strong>First name:</strong>
-  <%= @lead.first_name %>
-</p>
-
-<p>
-  <strong>Last name:</strong>
-  <%= @lead.last_name %>
-</p>
-
-<p>
-  <strong>Phone:</strong>
-  <%= @lead.phone %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @lead.email %>
-</p>
-
-<p>
-  <strong>Issue:</strong>
-  <%= @lead.issue %>
-</p>
-
-<%= link_to 'Back', leads_path %>
+<div class="container">
+  <div class="row">
+    <!-- Post Content Column -->
+    <div class="col-lg-10">
+      <!-- Title -->
+      <h1 class="mt-4"><%= @lead.first_name %>, <%= @lead.last_name %></h1>
+      <!-- Contact -->
+      <p class="lead">
+        <strong>Email: </strong><%= mail_to @lead.email %>
+      </p>
+      <p class="lead">
+        <strong>Phone number: </strong><%= @lead.phone %>
+      </p>
+        <hr>
+      <!-- Post Content -->
+      <h3 class="mt-4">Issue:</h3>
+      <p class="lead"><%= @lead.issue %></p>
+      <hr>
+      <!-- Date/Time -->
+      <p><strong>Received </strong> <%= time_ago_in_words(@lead.created_at) %> ago</p>
+        <hr>
+      <%= link_to 'Back', leads_path %>
+    </div>
+  </div>
+</div>
