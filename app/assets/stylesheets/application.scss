@@ -77,6 +77,30 @@ ul {
    background-attachment: fixed;
  }
 
+ .main-form {
+   display: none;
+ }
+
+ @include media-breakpoint-up(xl) {
+   .main-message-text{
+     width: 65vw;
+   }
+
+   .main-form {
+     display: block;
+     color: $white;
+     width: 300px;
+     background-color: $blue;
+     padding: 10px;
+     position: absolute;
+     right: 10%;
+   }
+   .client-message {
+     color: $black;
+   }
+}
+
+
  /// least-squares-fit
  /// Calculate the least square fit linear regression of provided values
  /// @param {map} $map - A SASS map of viewport width and size value combinations
