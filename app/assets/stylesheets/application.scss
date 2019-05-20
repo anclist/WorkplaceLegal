@@ -35,6 +35,10 @@ ul {
   list-style-type: none;
 }
 
+.main-content {
+  min-height: 100vh;
+}
+
 #service_links a:visited {
     color: white !important;
 }
