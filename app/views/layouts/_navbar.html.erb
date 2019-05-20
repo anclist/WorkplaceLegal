@@ -33,16 +33,15 @@
       <li class="nav-item">
         <%= link_to 'Acceso a Justicia', espanol_index_path, class: "nav-link" %>
       </li>
+      <li class="nav-item">
+        <%= link_to 'About', about_index_path, class: "nav-link" %>
+      </li>
       <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to 'Leads', leads_path, class: "nav-link" %>
       </li>
       <% else %>
       <% end %>
-
-      <li class="nav-item">
-        <%= link_to 'About', about_index_path, class: "nav-link" %>
-      </li>
     </ul>
     <p class="navbar-text pull-right">
       <% if user_signed_in? %>
@@ -50,6 +49,7 @@
         <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
         <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
       <% else %>
+        <%= link_to 'Call us for a legal consultation | (647) 381-5323', 'tel:+1-647-381-5323', class: "nav-link" %>
       <% end %>
     </p>
     <!-- <form class="form-inline my-2 my-lg-0">
