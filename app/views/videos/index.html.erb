@@ -13,10 +13,10 @@
   <% else %>
   <% end %>
 
-  <div class="row card-columns">
+  <div class="row">
       <% @videos.each do |video| %>
-      <div class="col-lg-4">
-        <div class="card">
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100">
           <% if video.provider == "YouTube" %>
             <img src="<%= video.thumbnail_url %>" class="card-img-top video-btn" alt="..." type="button" data-toggle="modal" data-src="https://www.youtube.com/embed/<%= video.video_id %>" data-target="#videoModal">
           <% else %>
