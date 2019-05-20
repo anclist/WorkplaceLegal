@@ -1,12 +1,4 @@
-<!-- Header -->
-<div class="jumbotron jumbobackground" id="services_bg"">
-  <div class="text-white text-center py-5 px-4 my-5">
-    <div>
-      <h1 class="card-title h1-responsive pt-3 mb-5 font-bold"><strong>Services</strong></h1>
-    </div>
-  </div>
-</div>
-
+<%= render 'services_heading' %>
 <div class="container">
   <% if user_signed_in? %>
     <%= link_to 'New Service', new_service_path %>
