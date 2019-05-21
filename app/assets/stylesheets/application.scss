@@ -95,6 +95,10 @@ ul {
    display: none;
  }
 
+ .main-content{
+   text-align: center;
+ }
+
  @include media-breakpoint-up(xl) {
    .main-message-text{
      width: 65vw;
@@ -114,4 +118,14 @@ ul {
    .client-message {
      color: $black;
    }
+}
+
+@include media-breakpoint-down(sm) {
+  .main-content{
+    text-align: left;
+    list-style-type: disc;
+  }
+  #main_bg{
+    padding: 5px;
+  }
 }
