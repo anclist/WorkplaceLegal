@@ -20,7 +20,7 @@
           <tr>
             <th scope="row"><%= row_counter += 1 %></th>
             <td><%= service.name %></td>
-            <td><%= service.description.truncate(65) %></td>
+            <td><%= strip_tags(service.description.truncate(65)) %></td>
             <td><%= link_to 'Show', service %></td>
             <% if user_signed_in? %>
               <td><%= link_to 'Edit', edit_service_path(service) %></td>

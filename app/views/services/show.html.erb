@@ -6,7 +6,7 @@
       <!-- Title -->
       <h1 class="mt-4"><%= @service.name %></h1>
       <!-- Service Content -->
-      <p class="lead text-justify"><%= @service.description %></p>
+      <p class="lead text-justify"><%= @service.description.html_safe %></p>
       <% if user_signed_in? %>
         <%= link_to 'Edit', edit_service_path(@service) %> |
         <%= link_to 'Back', services_path %>
