@@ -36,7 +36,7 @@ ul {
 }
 
 .terms, .justicia {
-  text-align: justify;
+  text-align: left;
 }
 
 #service_links a:visited {
@@ -121,7 +121,11 @@ ul {
 }
 
 @include media-breakpoint-down(sm) {
-  .main-content, #espanol-list, #membership-list{
+  #espanol-list, #membership-list{
+    text-align: left;
+    list-style-type: disc;
+  }
+  .main-content li {
     text-align: left;
     list-style-type: disc;
   }
