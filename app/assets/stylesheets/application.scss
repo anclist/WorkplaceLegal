@@ -98,6 +98,10 @@ ul {
  .main-content{
    text-align: center;
  }
+ 
+ .post-content{
+   text-align: left;
+ }
 
  @include media-breakpoint-up(xl) {
    .main-message-text{
