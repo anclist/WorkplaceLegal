@@ -18,44 +18,44 @@
 @import "bootstrap";
 @import "rails_bootstrap_forms";
 
-body {
+ body {
   font-family: 'Source Sans Pro', sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
+ h1, h2, h3, h4, h5 {
   letter-spacing: 3px;
 }
-* {
+ * {
    -webkit-border-radius: 0 !important;
       -moz-border-radius: 0 !important;
            border-radius: 0 !important;
  }
 
-ul {
+ ul {
   list-style-type: none;
 }
 
-.terms, .justicia {
+ .terms, .justicia {
   text-align: left;
 }
 
-#service_links a:visited {
+ #service_links a:visited {
     color: white !important;
 }
 
-#service_links a:active {
+ #service_links a:active {
     color: white !important;
 }
 
-#service_links a {
+ #service_links a {
     color: white !important;
 }
 
-#main_bg {
+ #main_bg {
   background-image: image-url('legal_main_img.jpg');
  }
 
-#blogs_bg {
+ #blogs_bg {
   background-image: image-url('blogs_bg_img.jpg');
  }
 
@@ -63,7 +63,7 @@ ul {
    background-image: image-url('videos_bg_img.jpg');
   }
 
-  #services_bg {
+ #services_bg {
     background-image: image-url('services_bg_img.jpg');
    }
 
@@ -71,14 +71,31 @@ ul {
    background-image: image-url('leads_bg_img.jpg');
   }
 
-  #espanol_bg {
+ #espanol_bg {
     background-image: image-url('espanol_bg_img.jpg');
    }
 
-   #terms_bg {
-     background-image: image-url('terms_bg_img.jpg');
-    }
+ #terms_bg {
+   background-image: image-url('terms_bg_img.jpg');
+  }
 
+  .avatar-container {
+    width:320px;
+    height:320px;
+    margin: 10px 10px 10px 0;;
+    overflow: hidden;
+    border-radius:50%;
+    position: relative;
+    float: left;
+
+  }
+
+ .avatar-container img {
+   position: absolute;
+   top:75%;
+   left:50%;
+   transform: translate(-50%,-50%);
+ }
 
 .jumbobackground {
    background-repeat: no-repeat;
@@ -98,7 +115,7 @@ ul {
  .main-content{
    text-align: center;
  }
- 
+
  .post-content{
    text-align: left;
  }
