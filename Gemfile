@@ -48,14 +48,10 @@ gem "bootstrap_form", ">= 4.2.0"
 # Use devise for authentication and authorization
 gem 'devise'
 
-# Use carrierwave as upload manager
+gem 'carrierwave-aws'
 gem 'carrierwave', '~> 1.0'
-
-# Use mini_magick to process images
 gem 'mini_magick'
-
-# The fog-aws gem will help us to upload file to s3.
-gem 'fog-aws'
+gem 'aws-sdk-rails'
 
 # Use ckeditor for rich text editor for blog Posts
 gem 'ckeditor'
@@ -63,8 +59,7 @@ gem 'ckeditor'
 # Heroku integration has previously relied on using the Rails plugin system, which has been removed from Rails 4
 gem 'rails_12factor', group: :production
 
-# You need to also include the AWS gem for ActiveStorage
-gem "aws-sdk-s3", require: false
+
 
 # Use httparty to get API data
 gem 'httparty'
