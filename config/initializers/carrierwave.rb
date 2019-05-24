@@ -1,33 +1,15 @@
 CarrierWave.configure do |config|
-  config.storage    = :aws
-  config.aws_bucket = ENV.fetch('S3_BUCKET_NAME') # for AWS-side bucket access permissions config, see section below
-  config.aws_acl    = 'private'
-
-  # Optionally define an asset host for configurations that are fronted by a
-  # content host, such as CloudFront.
-  # config.asset_host = 'http://example.com'
-
-  # The maximum period for authenticated_urls is only 7 days.
-  config.aws_authenticated_url_expiration = 60 * 60 * 24 * 7
-
-  # Set custom options such as cache control to leverage browser caching.
-  # You can use either a static Hash or a Proc.
-  config.aws_attributes = -> { {
-    expires: 1.week.from_now.httpdate,
-    cache_control: 'max-age=604800'
-  } }
-
-  config.aws_credentials = {
-    access_key_id:     ENV.fetch('S3_KEY'),
-    secret_access_key: ENV.fetch('S3_SECRET'),
-    region:            ENV.fetch('S3_REGION'), # Required
-    stub_responses:    Rails.env.test? # Optional, avoid hitting S3 actual during tests
+  config.fog_provider = 'fog/aws'                        # required
+  config.fog_credentials = {
+    provider:              'AWS',                        # required
+    aws_access_key_id:     'S3_KEY',                        # required unless using use_iam_profile
+    aws_secret_access_key: 'S3_SECRET',                        # required unless using use_iam_profile
+    # use_iam_profile:       true,                         # optional, defaults to false
+    region:                'S3_REGION',                  # optional, defaults to 'us-east-1'
+    # host:                  's3.example.com',             # optional, defaults to nil
+    # endpoint:              'https://s3.example.com:8080' # optional, defaults to nil
+    path_style: true
   }
-
-  # Optional: Signing of download urls, e.g. for serving private content through
-  # CloudFront. Be sure you have the `cloudfront-signer` gem installed and
-  # configured:
-  # config.aws_signer = -> (unsigned_url, options) do
-  #   Aws::CF::Signer.sign_url(unsigned_url, options)
-  # end
+  config.fog_directory  = 'S3_BUCKET_NAME'                                      # required
+  config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
 end
