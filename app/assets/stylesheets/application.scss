@@ -35,6 +35,11 @@
   list-style-type: none;
 }
 
+#messages {
+  position: absolute;
+  z-index: 1000;
+}
+
  .terms, .justicia {
   text-align: left;
 }
