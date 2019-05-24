@@ -8,6 +8,7 @@ CarrierWave.configure do |config|
     region:                'S3_REGION',                  # optional, defaults to 'us-east-1'
     # host:                  's3.example.com',             # optional, defaults to nil
     # endpoint:              'https://s3.example.com:8080' # optional, defaults to nil
+    path_style: true
   }
   config.fog_directory  = 'S3_BUCKET_NAME'                                      # required
   config.fog_attributes = { cache_control: "public, max-age=#{365.days.to_i}" } # optional, defaults to {}
