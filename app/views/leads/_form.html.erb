@@ -5,7 +5,7 @@
 
       <%= form.text_field :first_name %>
       <%= form.text_field :last_name %>
-      <%= form.select :language, ['English', 'Spanish'], toggle: true%>
+      <%= form.select :language, ['English', 'Spanish'], :prompt => 'Choose a language', toggle: true%>
       <%= form.phone_field :phone %>
       <%= form.email_field :email %>
       <%= form.text_area :issue, label: 'Describe your case' %>
