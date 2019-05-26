@@ -23,7 +23,7 @@
 }
 
  h1, h2, h3, h4, h5 {
-  letter-spacing: 3px;
+  letter-spacing: 5px;
 }
  * {
    -webkit-border-radius: 0 !important;
@@ -31,13 +31,13 @@
            border-radius: 0 !important;
  }
 
- ul {
-  list-style-type: none;
-}
-
 #messages {
   position: absolute;
   z-index: 1000;
+}
+
+.title-line {
+  display: none;
 }
 
  .terms, .justicia {
@@ -148,6 +148,25 @@
    }
    .client-message {
      color: $black;
+   }
+
+   .punch-line {
+     text-align: left;
+   }
+
+   .title-line {
+     border-top: 2px solid $white;
+     max-width: 560px;
+     display: block;
+     unicode-bidi: isolate;
+     margin-block-start: 0.5em;
+     margin-block-end: 0.5em;
+     margin-inline-start: auto;
+     margin-inline-end: auto;
+     overflow: hidden;
+     clear: both;
+     margin: 1em 0;
+     margin-bottom: 40px;
    }
 }
 
