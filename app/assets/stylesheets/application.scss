@@ -13,10 +13,13 @@
  */
 
  // Custom bootstrap variables must be set or imported *before* bootstrap.
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "_variables";
 @import "custom";
 @import "bootstrap";
 @import "rails_bootstrap_forms";
+
 
  body {
   font-family: 'Source Sans Pro', sans-serif;

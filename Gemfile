@@ -60,6 +60,8 @@ gem 'ckeditor'
 gem 'rails_12factor', group: :production
 
 
+# Use FontAwesome::Sass for icons
+gem 'font-awesome-sass', '~> 5.8.1'
 
 # Use httparty to get API data
 gem 'httparty'
