@@ -23,7 +23,7 @@
           <a href="<%= blog_path(blog) %>">
             <h5 class="card-title"><%= blog.title %></h5>
           </a>
-          <p class="card-text"><%= strip_tags(blog.content.truncate(250)) %></p>
+          <p class="card-text"><%= strip_tags(blog.content.truncate(220)) %></p>
         </div>
           <div class="card-footer">
             <p class="card-text"><small class="text-muted">Published by <%= mail_to(blog.user.email) %></small></p>
