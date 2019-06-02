@@ -1,0 +1,9 @@
+<%= render 'layouts/errors', active_object: @request %>
+
+<div class="container">
+  <%= bootstrap_form_with(model: request, local: true) do |form| %>
+
+      <%= form.text_field :name %>
+      <%= form.submit %>
+  <% end %>
+</div>

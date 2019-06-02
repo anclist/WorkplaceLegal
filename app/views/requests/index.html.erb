@@ -1,0 +1,32 @@
+<%= render 'requests_heading' %>
+<div class="container">
+  <% if user_signed_in? %>
+    <%= link_to 'New Request Type', new_request_path %>
+  <% else %>
+  <% end %>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Name</th>
+          <th scope="col" colspan="2">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% row_counter = 0 %>
+        <% @requests.each do |request| %>
+          <tr>
+            <th scope="row"><%= row_counter += 1 %></th>
+            <td><%= request.name %></td>
+            <% if user_signed_in? %>
+              <td><%= link_to 'Edit', edit_request_path(request) %></td>
+              <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% else %>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
