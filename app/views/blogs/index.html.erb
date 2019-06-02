@@ -27,7 +27,6 @@
         </div>
           <div class="card-footer">
             <p class="card-text"><small class="text-muted">Published by <%= mail_to(blog.user.email) %></small></p>
-            <p class="card-text"><small class="text-muted">Last updated <%= time_ago_in_words(blog.updated_at) %> ago</small></p>
             <p><%= link_to('Show More', blog_path(blog) , class: "btn btn-primary") %></p>
             <% if user_signed_in? %>
                 <p><%= link_to 'Edit', edit_blog_path(blog) %></p>

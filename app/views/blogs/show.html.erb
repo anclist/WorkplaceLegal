@@ -9,12 +9,8 @@
         by <%= mail_to(@blog.user.email) %>
       </p>
         <hr>
-      <!-- Date/Time -->
-      <p><strong>Posted </strong> <%= time_ago_in_words(@blog.updated_at) %> ago</p>
-      <p><strong>Updated </strong> <%= time_ago_in_words(@blog.updated_at) %> ago</p>
-        <hr>
       <!-- Tags -->
-      <h3 class="mt-4">Services</h3>
+      <h3 class="mt-4">Related services</h3>
       <p>
         <% @blog.services.each do |service| %>
           <span class="badge badge-primary" id="service_links"><%= link_to service.name, service_path(service) %></span>
