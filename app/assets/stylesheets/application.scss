@@ -60,6 +60,13 @@
     color: white !important;
 }
 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open>.dropdown-toggle.btn-primary {
+    border: solid 2px $white;
+    transform:scale(1.1,1.1);
+    -webkit-transform:scale(1.1,1.1);
+    -moz-transform:scale(1.1,1.1);
+}
+
  #main_bg {
   background-image: image-url('legal_main_img.jpg');
  }
