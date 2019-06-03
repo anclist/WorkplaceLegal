@@ -5,6 +5,7 @@
 
       <%= form.text_field :name %>
       <%= form.cktext_area :description, ckeditor: { language: 'en'} %>
+      <%= form.collection_check_boxes :request_ids, Request.all, :id, :name, label: "Request types" %>
       <%= form.submit %>
   <% end %>
 </div>

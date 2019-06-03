@@ -11,6 +11,7 @@
           <th scope="col">#</th>
           <th scope="col">Name</th>
           <th scope="col">Description</th>
+          <th scope="col">Request Type</th>
           <th scope="col" colspan="3">Actions</th>
         </tr>
       </thead>
@@ -21,6 +22,11 @@
             <th scope="row"><%= row_counter += 1 %></th>
             <td><%= service.name %></td>
             <td><%= strip_tags(service.description.truncate(65)) %></td>
+            <td>
+              <% service.requests.each do |request| %>
+                <%= request.name %> <br>
+              <% end %>
+            </td>
             <td><%= link_to 'Show', service %></td>
             <% if user_signed_in? %>
               <td><%= link_to 'Edit', edit_service_path(service) %></td>
