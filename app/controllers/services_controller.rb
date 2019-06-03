@@ -11,6 +11,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    @lead = Lead.new
   end
 
   # GET /services/new

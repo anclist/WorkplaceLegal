@@ -5,7 +5,7 @@
       <div class="text-white text-center py-5 px-4 my-5 main-message-text">
         <div class="container punch-line">
             <h1 class="card-title display-3 line anim-typewriter"><strong>Workplace Legal</strong></h1>
-            <hr class="title-line">
+            <br>
             <h2 class="mb-4 lead">Build Wealthier & Healthier Workplaces</h2>
             <h2 class="mb-4 lead">& Save the World.</h2>
           <!-- Button trigger modal -->
@@ -19,7 +19,7 @@
   </div>
   <div class="container main-form">
     <p><strong>Contact Us:</strong></p>
-    <%= render 'form', lead: @lead %>
+    <%= render 'layouts/form', lead: @lead %>
   </div>
 </div>
 
@@ -34,7 +34,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <%= render 'form', lead: @lead %>
+        <%= render 'layouts/form', lead: @lead %>
       </div>
     </div>
   </div>
