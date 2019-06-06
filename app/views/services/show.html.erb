@@ -20,16 +20,24 @@
 <% if @service.requests.any? %>
 <div class="container">
   <hr>
-  <h4>Contact us about:</h4>
-  <br>
-  <!-- Button trigger modal -->
-    <% @service.requests.each do |request| %>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ContactForm">
-        <%= request.name %>
-      </button>
-    <% end %>
-    <% else %>
-    <% end %>
+  <div class="row">
+    <div class="col-lg-12">
+      <h4>Contact us about:</h4>
+      <br>
+    </div>
+  </div>
+  <div class="row">
+      <!-- Button trigger modal -->
+        <% @service.requests.each do |request| %>
+        <div class="col-lg-4 mb-2">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ContactForm">
+            <%= request.name %>
+          </button>
+        </div>
+        <% end %>
+        <% else %>
+        <% end %>
+  </div>
 
   <!-- Modal -->
   <div class="modal fade" id="ContactForm" tabindex="-1" role="dialog" aria-labelledby="ContactFormLabel" aria-hidden="true">
