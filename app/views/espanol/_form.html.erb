@@ -10,24 +10,16 @@
       <%= form.text_field :email, label: 'Correo electronico' %>
       <%= form.text_area :issue, label: '¿Cómo podemos ayudarle?' %>
       <!-- Button trigger modal -->
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#clientRelationshipMessage">
+      <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target=".clientRelationshipMessage">
         Enviar
       </button>
+      <br>
 
       <!-- Modal -->
-      <div class="modal fade" id="clientRelationshipMessage" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Aviso</h5>
-            </div>
-            <div class="modal-body">
-              <p>El envio de este formulario no establece una relación abogado/cliente</p>
-            </div>
-            <div class="modal-footer">
-                    <%= form.submit "Ok" %>
-            </div>
-          </div>
+      <div class="collapse clientRelationshipMessage">
+        <div class="card card-body client-message">
+          <p>El envio de este formulario no establece una relación abogado/cliente</p>
+          <%= form.submit "Ok" %>
         </div>
       </div>
   <% end %>
