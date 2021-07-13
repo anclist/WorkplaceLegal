@@ -49,7 +49,7 @@ gem "bootstrap_form", ">= 4.2.0"
 gem 'devise'
 
 gem 'carrierwave-aws'
-gem 'carrierwave', '~> 1.0'
+gem 'carrierwave', '~> 1.3'
 gem 'mini_magick'
 gem 'aws-sdk-rails'
 
